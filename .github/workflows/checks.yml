@@ -1,0 +1,23 @@
+---
+name: Checks #which appears in github actions
+
+
+on : [push] #any push will run the checks
+
+jobs :
+    test-lint:
+     name:  Test and Lint
+     runs-on: ubuntu-20.04
+
+     steps:
+      - name: Test and Lint
+        uses: docker/login-action@v1
+        with:
+          username : ${{ secrets.DCKERHUB_TOKEN }}
+          password : ${{ secrets.DOCKERHUB_SECRET }}
+      - name: Checkout #checkout the code to run the next step/code is available (search in google)
+        uses : actions/checkout@v2
+      - name: Test
+        run : docker compose  run --rm app sh -c "python manage.py test"
+      - name : Lint
+        run : docker compose run --rm app sh -c "flake8"  

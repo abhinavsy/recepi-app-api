@@ -1,15 +1,3 @@
-# recepi-app-api
-Recipe API Project
-
-
-#docker compose run --rm app sh -c "flake8"
-
-
-
-#docker compose run --rm app sh -c "python manage.py test"
-
-
-
 FROM  python:3.9-alpine3.13
 #python i s the image and the 3.9-alpine3.13 is the tag we are using which is alighter image of the linux
 
@@ -56,19 +44,3 @@ ENV PATH="/py/bin:$PATH"
 
 #django-user will run and not the root user
 USER root    
-
-
-
-
-
-#git hub actions
-automation tool
-similar ci cd,travis ci,gitlab ci/cd jenkins
-run jobs when code changes
-
-
-trigger(push to github) > run tests >success/fails
-
-
-
-configuring github actions
